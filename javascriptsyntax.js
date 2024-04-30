@@ -185,4 +185,12 @@ function functionName(parameter, parameter...){
 functionName(arguements)
 
 
-//All of the above is sussinctly covered on this page: https://javascript.info/javascript-specials. 
+//All of the above is susinctly covered on this page: https://javascript.info/javascript-specials. 
+
+//Must learn devtools
+
+//Style guide: https://javascript.info/coding-style
+
+//TDD vs BDD (?)
+
+//Polyfills and transpilers

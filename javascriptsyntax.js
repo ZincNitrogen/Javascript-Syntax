@@ -194,3 +194,24 @@ functionName(arguements)
 //TDD vs BDD (?)
 
 //Polyfills and transpilers
+
+//Objects
+
+let exampleObject = {
+    property1 = "this is the first property",
+    property2 = "another one",
+    explainMethod: function ExplainFunction() {
+        action;
+        action;
+    },
+    explainSecondMethod: function ExplainSecondFunction() {
+        action;
+        action;
+    }
+
+
+
+}
+
+exampleObject.property1 //value of property1 inside object
+exampleObject.explainMethod() //returns value of the function inside object

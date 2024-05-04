@@ -201,8 +201,85 @@ const y = 234;
                                             }
 
                                             let newObject = new thisFunction(arg)
+
+
+
+
                     II. Symbol:
-                            ^
+                                ^Is a unique identifier - to be used as object keys with pspecific purposes
+                                ^let nameOfSymbol = Symbol("description of symbol")
+                                ^all symbols are unique even if the descriptions are the same, the name of the symbol must be unique
+                                ^use squaare brackets in object literals:
+                                                let user = {
+                                                    [id]: 123.
+                                                };
+                                ^Because Symbol is an object, there are various proerpties and methods associaeted with it.
+
+
+
+
+                    III. Array:     
+                                ^Arrays - a type of object  ordered collections of data of any type,indexed starting at 0
+                                    ex:
+                                    
+                                        let nameOfArray = new Array(); -> Array constructor
+
+                                        let nameOfAnotherArray = [] -> Array literal
+
+
+
+                                ^for..of loops work for iterating over arrays
+                                ^Arrays are mutable
+                                ^Arrays are iterable
+                                ^Because Arrays are Objects,there are various properties and methods associated with it
+
+
+
+
+                    V.Map:
+                                ^Essentally the same a a plain object, but allows for any data type to be a key. 
+                                
+                                    ex: let thisMap = new Map() -> Map constructor
+
+                                ^properties maintain creation order
+                                ^Because Maps are Objects, there are various properties and methods associated with it
+                                ^A subtype of Map is WeakMap, which will automatically free up memory when proeprties are not in use (Map) doesn't do this.
+                                    ex: let variableName = new WeakMap();
+                                ^Can only take objects as keys.
+
+
+                    VI. Set:
+                                ^Are like Arrays except values can appear in the structure only once
+                                ^Because Sets are Objects, there are various properties and methods associated with it
+                                ^A subtype of Set is WeakSet, which will automatically free up memory when properties are not in use,
+                                   ex: let variableName = new WeakSet();
+
+
+                    VII. JSON:
+                                ^The JSON (JavaScript Object Notation) is a general format to represent values and objects. 
+                                ^ main methods are JSON.stringify to convert objects into JSON and JSON.parse to convert JSON back into an object.
+                                  ex: let student = {
+                                        name: 'John',
+                                        age: 30,
+                                        isAdmin: false,
+                                        courses: ['html', 'css', 'js'],
+                                        spouse: null
+                                        };
+
+                                        let json = JSON.stringify(student); -> returns:       {
+                                                                                                "name": "John",
+                                                                                                "age": 30,
+                                                                                                "isAdmin": false,
+                                                                                                "courses": ["html", "css", "js"],
+                                                                                                "spouse": null
+                                                                                                }
+
+                                ^Various other properties and methods exist as this is an Object.
+
+                    VIII. Object Wrappers:
+                                ^**To be written**
+
+
 
 
 
@@ -230,6 +307,8 @@ const y = 234;
     f. For..in Loop
     g. For..Of Loop
     h. If Statements
+    I. Destructuring
+
     
 */
 

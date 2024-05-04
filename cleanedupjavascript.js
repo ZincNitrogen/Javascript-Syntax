@@ -78,6 +78,7 @@ const y = 234;
                         ^means "there is currently no value assigned here". There is nothing in ths box.
                         ^Is always enclosed by a Undefined object wrapper and so contains object properties and methods.(?)
 
+
 */
         
 /* b. Non-Primatives/Complex 
@@ -393,6 +394,18 @@ const y = 234;
     1.Primative to Primative
     2. Object to primitive
 
+            1. Primative to Primative
+               I. String Conversion
+                    ex: String(non-string value);
+               II. Numeric Conversion
+                    ex: Number(non-int value);
+               III. Boolean Convserion
+                    ex: Boolean(non-bool value);
+
+
+            2.Object to Primative Conversion
+               I. **to be written**
+
 
 
 
@@ -403,14 +416,99 @@ const y = 234;
 
 /*  a. While Loop
     b. Do...While Loop
-    c.For Loop
-    d.Switch Statemtent
-    e. Function
+    c.For Loop   
+    d.Switch Statemtent   
     f. For..in Loop
     g. For..Of Loop
     h. If Statements
     I. Destructuring
+    J. Misc
+             
+                    a. While Loop
 
+
+                        while (condition) {
+                            action;
+                            condition breaker;
+                        }
+
+                        ^condition is truthy by default in all types of loops
+
+
+                    b. Do...While Loop
+                        do {
+                            action;
+                            condition breaker;
+                        } while(condition);
+                    c.For Loop
+                        for (initialization variable (either inline or outside); condition; step) {
+                                action;
+                            }
+
+                    d.Switch Statemtent
+                        ^ can be used in place of multiple if checks. Cases can be grouped without break statements between them
+
+                            switch (conditional){
+                                case value1:
+                                    action;
+                                    break
+                                case value2:
+                                    action;
+                                    break
+
+                            }
+
+                    f. For..in Loop
+                            ^for object properties
+                            
+                    g. For..Of Loop
+                            ^for arrays and iterable objects
+                    
+
+                    h. If Statements:
+
+                            ex:
+                                if (condition){
+                                    action;
+                                    action;
+                                    
+                                } else if (condition){
+                                    action;
+
+                                } else {
+                                    action;
+                                    action;
+                                }
+
+                            ^note that the question mark operator exists for elegance with respect to conditinals
+
+                    I. Destructuring
+                                ^Taking an object and isolating its elements into seperate distinct variables
+
+                                ^Arrays
+                                    ex:
+                                        let arr: ["John", "Smith"];
+
+                                        let [firstName, surname] = arr; -> now Firstname is linked to arr[0] and likewise respectively with surname.
+
+                                ^Object
+                                    ex: **to be written**
+
+
+                    J.Misc:
+                        ^'break' can be used to forcefully exit any loop
+                        ^'continue' can be used to begin a new iteration of loop from that point where 'continue' exists.
+
+                        ^labels
+
+                           ex: labelName: conditional; 
+                                            conditional
+
+                                            break labelName; -> allows  break snd continue to target specific loops from any nested depth.
+
+
+
+                            
     
 */
 
@@ -423,11 +521,76 @@ const y = 234;
     d. Modify and Assign
     e. Comparison Operators
     d. Other Operators (include type of)
+
+
+                    a. Logical Operators:
+                        ^used for
+                            || OR
+                            && AND
+                            ! NOT
+                            ?? Nullish Coalescing
+                      
+                    b. Bitwise Operators
+                        ^used for
+                            AND ( & )
+                            OR ( | )
+                            XOR ( ^ )
+                            NOT ( ~ )
+                            LEFT SHIFT ( << )
+                            RIGHT SHIFT ( >> )
+                            ZERO-FILL RIGHT SHIFT ( >>> )
+                    c. Mathematical Operators
+                            ^used for math, string concatination, and string to numeric division, string to int conversion
+                                                                    
+                                Addition +,
+                                Subtraction -,
+                                Multiplication *,
+                                Division /,
+                                Remainder %,
+                                Exponentiation **.
+
+
+                    d. Modify and Assign:
+                        ^used on variables to assign new values to variables based on another variable.
+                            +=
+                            *=
+                            /=
+                            -=
+                            * \ /
+                        ^Increment and Decrement    
+                            ++: inc by 1,
+                             --: dec by 1
+                            prefix: operates and returns new value
+                            postfix:operates and returns old value
+                                
+                    e. Comparison Operators:
+                        ^used for comparing datatypes and value
+
+                        <, >, <=, >=, ==,===,!==, !=
+
+                    
+                        ^Strings get compared alphabetically with 0 being A and 24 being Z (therefore Z>A returns True)
+                            watch out for quirks with null/undefined comparisons
+                        ^multitype conversion: strings get converted to numbers, true and false bools become 1 nad 0 respectively
+
+                        ^strict equality checks equality without converting types
+
+                        
+
+                    d. Other Operators (include type of)
+                                ^typeof: finds the data type of a variable: typeof x or typeof(x)
+                                ^comma :used to throw all arugements except the last one
  */
 
 //INTERACTION
 
 /*
     a.Modal Window
+        alert("hello"); ->basic modal window popup
+
+        let popUp = prompt("this is a warning", [input]); ->prompt is a modal window that allows user input
+
+        let confirmPLease = confirm("why have drama?"); ->confirm is a modal window with two buttons "ok" (true) and "cancel"(false)
+
 
 */

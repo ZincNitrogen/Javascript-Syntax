@@ -113,14 +113,43 @@ const y = 234;
                             I. Plain Object:
                                 ^An Object that is user defined.
                                 ^To delete propeties: delete objectName.propertytodelete;
-                                ^in and key
+                                ^ Can use external variable values as property names(called computed properties)
+                                    ex: let fruit = "apple";
+                                        let fruitObject = {
+
+                                            [fruit]: "Granny Smith",
+                                        };
+
+                                        fruitObject.apple; -> returns "Granny Smith"
+
+                                        ^Computed properties can contain external variables in addition to strings (i believe other data types as well, though not sure...)
+
+                                ^ [in] keyword can be used to test if a specific key exists within an object
                                     ex:
 
-                                    
-                            
+                                        let thisObject = {
+                                            propertyOne: "this property"
+                                        }
+
+                                        propertyOne in thisObject; -> returns true
+                                        propertyTwo in thisObject -> returns false
+
+                                ^Can iterate over keys of object properties by using a for..in loop
+                                        for (key in object){
+
+                                            action;
+                                        }
+                                
+
+                                ^To delete properties use:
+                                        delete objName.propertyName;
+
                                     ^Plain Object Literals
                                         ^declared with let or const
                                         ^Keys can either be plaintext, strings or symbols while pairs can be any datatype
+                                        ^Non-plaintext keys, with the exception of strings and symbols CAN be used
+                                            but are automatically converted to strings.
+                                        ^ Int keys (aka "integer properties") (which, again are converted to strings)  are ordered from least to greatest. All other values are ordered according to creation order
                                         ^commas seperate properties
 
 
@@ -141,6 +170,16 @@ const y = 234;
                                         thisObject.exampleMethod() -> returns value of the function inside object
                                         thisObject.nestedObject -> returns ????
                                         thisObject.nestedObject.subpropertyone -> returns nested property from property object
+
+                                        ^The "this" keyword can be used by an object method to reference proerties inside its parent object
+                                            ex: let thisOBject = {
+                                                prop1: 24;
+                                                exampleMethod: function() {
+                                                    let ziyadAge = this.prop1;
+                                                    return ziyadAge;
+                                                }
+                                            }
+                        
 
                                     ^Plain Object Constructors
                                         ^ Can be used to (a) create empty objects or (b)instantiate new objects from functions

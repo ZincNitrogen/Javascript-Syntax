@@ -3,7 +3,7 @@
 //This is a single line comment
 
 /* this
-is
+is-
 a
 multiline
 comment
@@ -183,6 +183,12 @@ function functionName(parameter, parameter...){
 }
 
 functionName(arguements)
+//That was a function declaration. There are also function expressions:
+
+let variableName = function(){
+
+    action;
+}
 
 
 //All of the above is susinctly covered on this page: https://javascript.info/javascript-specials. 
@@ -332,3 +338,75 @@ let nameName = new Map(); //map constructor
 //WeakSets are like Sets but only objects can be keys
 //Array and Object destructuring = only interate over certain parts of the data 
 //JSONS are a thing...
+
+//Recursion is when a function calls itself -must re study this section
+
+//Rest Parameters: get a function to accept a non-discrete amount of arguments as an array
+
+
+function nameOfFunction(param1, param2, ...nameOfArray) {
+    action;
+    arguments.length; //a loosely associated object that indexes arguments (?). Generally depreciated now though.
+
+}
+
+nameOfFunction(arg1, arg2, arg3, arg4); //arg1 and arg2 are discrete and isolated while arg3 and arg4 are in the array nameOfArray.
+
+
+//Spread Paramters: the opposite of Rest Parameters, gets arguments from elements of an array.
+
+
+
+let thisArray = [arg1, arg2, arg3]
+
+function nameOfFunction(...nameOfArraySource) {
+    action;
+}
+
+//Arbitray scope can be limited by code blocks
+
+{
+
+    some code ;
+
+}
+
+//global Objects
+
+globalThis
+
+//global variables
+
+var nameOfGlobalVariable = "any value";
+
+//Functions, like Arrays are objects. Functions have properties.
+
+function nameOfFunc() {
+    action;
+}
+
+nameOfFunc.name; // returns the name of the function
+//there are many other properties of functions because they are objects.
+//we can add custom properties to functions like so:
+
+function nameOfFuncBruh() {
+
+    nameOfFuncBruh.new_property //need to explore this deeper
+}
+
+//look into Named Function Expressions
+
+
+//rare alternative usecase for making a function:
+
+let func = new Function([arg1, arg2, ...], functionBody);
+
+
+//Scheduling a call
+
+let nameOfthis = setTimeout(func|code, [delay],[arg1], [arg2], ...); //setTimeout allows us to run a function once after the interval of time
+let nameofThat = setInterval(func|code, [delay],[arg1], [arg2], ...); //allows us to run a function repeatedly, starting after the interval of time, then repeating continuously at that interval.
+//There are other quirks about this - must look into this deeper.
+
+//Decorators and Forwarding, call/apply -> ???
+//Function Binding -> ????

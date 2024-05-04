@@ -234,6 +234,108 @@ const y = 234;
                                 ^Because Arrays are Objects,there are various properties and methods associated with it
 
 
+                    IV. Function:
+                               ^Functions, global variables are outside of functions, local vars are inside them.
+                                ^defaults can be defiend as parameters with 'parameter = Value'
+                                ^'return value' gives value to the function call, 'return' by itself can exit the function and return 'undefined'
+                                ^naming conventions usially begin with verb describing action, followed by the goal of the funciton. Camel case is used.
+                                ^Functions should only do single tasks
+
+                                ^functionName() refers to the result/return value of functionName. functionName refers to the function itself
+                                ^function expressions exist as do arrow functions (what is usually used is a function declaration)
+
+                                ex: function declaration :
+
+                                                        function functionName(parameter, parameter...){
+
+                                                            action;
+                                                        }
+
+                                                        functionName(arguements)
+
+                                    function expression: 
+                                                        let variableName = function(){
+                                                        --
+                                                            action;
+                                                        }
+                                    Named Funcition Expression:
+                                                        let variableName = function nameOfFunction(){
+                                                            --
+                                                                action;
+                                                            }
+                                    Arrow Function:
+                                                        ** to be written**
+
+                                    Rare alternative usecase for making a function:
+
+                                                        let func = new Function([arg1, arg2, ...], functionBody);
+
+                            
+                
+
+
+                                ^Recursion is when a function calls itself - need to study this more
+                                ^Rest Parameters: get a function to accept a non-discrete amount of arguments as an array
+                                    ex:
+                                        function nameOfFunction(param1, param2, ...nameOfArray) {
+                                            action;
+                                            arguments.length; //a loosely associated object that indexes arguments (?). Generally depreciated now though.
+
+                                        }
+
+                                        nameOfFunction(arg1, arg2, arg3, arg4); //arg1 and arg2 are discrete and isolated while arg3 and arg4 are in the array nameOfArray.
+
+
+                                ^Spread Paramters: the opposite of Rest Parameters, gets arguments from elements of an array.
+                                    ex:
+                                        let thisArray = [arg1, arg2, arg3]
+
+                                        function nameOfFunction(...nameOfArraySource) {
+                                            action;
+                                        }
+                                ^Arbitray scope can be limited by code blocks
+                                    ex:
+                                            {
+
+                                                some code ;
+
+                                            }
+                                ^global Objects
+
+                                    ex: globalThis
+
+                                ^global variables
+
+                                    ex: var nameOfGlobalVariable = "any value";
+
+                                ^Functions, like Arrays are objects. Functions have properties.
+                                    ex: 
+                                    function nameOfFunc() {
+                                        action;
+                                    }
+
+                                    nameOfFunc.name; -> returns the name of the function
+
+                                ^there are many other properties of functions because they are objects.
+                                ^we can add custom properties to functions like so:
+                                    ex:
+
+                                        function nameOfFuncBruh() {
+
+                                            nameOfFuncBruh.new_property //need to explore this deeper
+                                        }
+
+
+                                ^Scheduling a call (setTImeout and setInterval)
+                                    ex:
+
+                                        let nameOfthis = setTimeout(func|code, [delay],[arg1], [arg2], ...); //setTimeout allows us to run a function once after the interval of time
+                                        let nameofThat = setInterval(func|code, [delay],[arg1], [arg2], ...); //allows us to run a function repeatedly, starting after the interval of time, then repeating continuously at that interval.
+                                        //There are other quirks about this - must look into this deeper.
+
+                                ^Decorators and Forwarding, call/apply -> ???
+                                ^Function Binding -> ????
+
 
 
                     V.Map:

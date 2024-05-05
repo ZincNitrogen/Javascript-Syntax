@@ -15,7 +15,18 @@ let x = 123;
 const y = 234;
 
 /*camelCase for naming variables. 
- ALL CAPS for pre-runtime consts*/
+ ALL CAPS for pre-runtime consts
+
+ 
+
+UNDERSCORE_FOR_CONSTANTS
+
+camelForDeclarations
+
+Capitalforconstructors
+
+*/
+
 
 
 
@@ -45,6 +56,28 @@ const y = 234;
                             ^Are immuntable
                             ^Are iterable (and therefore indexable)
                             ^Is always enclosed by a String object wrapper and so contains object properties and methods.
+                            ^Single dots call methods and properties to variables, double dots on values directly
+                            ^The characters are compared by their numeric code. The greater code means that the character is greater. In general Capitals < lowercase <common non-letter characters < special characters < other language characters
+                            > Common String Properties
+                                > .length -> gets length
+                                > .at[index] -> gets character at index
+                                >
+                            > Common String Methods
+                                > .toUpperCase() -> converts to uppercase
+                                > .toLowerCase() -> converts to lowercase
+                                > .indexOf(substr, index) -> returns the starting index of a substring within a string
+                                > .includes(substr, [index]) -> boolean if sunstr is in String. index is optional.
+                                > .startsWith(substr) -> boolean if substring begins string
+                                > .endssWith(substr) -> boolean if substring ends string
+                                > .slice(start index [, end index]) -> returns substring defined by start and optional end indexes (!!!most important of all search and return sybstring methods)
+                                > .substring(start index [, end index]) -> returns substring defined by start and optional end indexes (not including end)
+                                > .substr(start index [, length]) ->  Returns the part of the string from start, with the given length.
+                                > .str.trim() -> removes whitespace around string
+                                > .str.repeat(n) -> repeats string n times.
+                                > .codePointAt(index) -> gets  UTF-16 code for character at position
+                                > .String.fromCodePoint(code) -> Creates a character by its numeric code
+                                > .localeacompare(other string to compare) -> compares characters of different languages via ECMA-402 standard
+                                > .
                     
                     2.Int:
                         ^aka "Double precision floating point numbers".
@@ -55,7 +88,28 @@ const y = 234;
                             ex: 1e9 will print as 1000000000; 1 and 9 zeros to the right.
                                 5e-4 will print as 0.0005; 1 and 4 zeros to the left.
                         ^Includes hex, bianry, and octal number systems.
+                        ^Look into precision errors.
                         ^Is always enclosed by an Int object wrapper and so contains object properties and methods.
+
+                        > Common Int Properties
+                            > 
+                        > Common String Methods
+                            > .toString(base) -> converts int to string in any number system via base from 2 - 36
+                            > Math.floor(int) -> rounds down to nearest whole number
+                            > Math.ceil(int) -> rounds up to nearest whole number
+                            > Math.round(int) -> rounds any direction to nearest whole number (.5+ is up, .49- is down)
+                            > Math.trunc(int) -> Removes anything after the decimal point without rounding
+                            > .toFixed(n) -> rounds to nearest whole number at n digits after decimal and returns a string
+                            > parseInt(int) -> reads number from a string and returns it as an int
+                            > parseFloat(int) -> reads floating point number from a string and returns it as an int
+                            > Math.random() -> Returns a random number from 0 to 1 (not including 1).
+                            > Math.max(a, b, c...) -> Returns the greatest from the arbitrary number of arguments.
+                            > Math.min(a, b, c...) -> Returns the smallest from the arbitrary number of arguments.
+                            > Math.pow(n, power) -> Returns n raised to the given power.
+                            >
+
+
+
 
                     3. BigInt:
                         ^For any integer that exceeds |((2^53)-1)| digits long.
@@ -231,8 +285,25 @@ const y = 234;
 
                                 ^for..of loops work for iterating over arrays
                                 ^Arrays are mutable
-                                ^Arrays are iterable
+                                ^Arrays are iterable (therefore indexable w/ square brackets -> array[index])
                                 ^Because Arrays are Objects,there are various properties and methods associated with it
+                                                
+                                    > Common Array Properties
+                                        > .at[index] ->returns element at index
+                                    > Common Array Methods
+                                        > .pop() -> Extracts the last element of the array and returns it
+                                        > .push(n) -> Append the element n to the end of the array
+                                        > .shift() -> Extracts the first element of the array and returns it
+                                        > .unshift(n) -> Add the element n to the beginning of the array
+                                        > String(n) -> returns all elements of array n in a comma seperted string
+                                        > .splice(start index, [, n's to delete, element1,.....,elementn]) -> from a given index, [delete n elemnts, replace them with element, element2, element etc]
+                                        > .slice([start index], [end index]) -> returns a new array copying to it all items from index start to end (not including end). Can also make copy of original array if used without arguments.
+                                        > .concat(arg1, arg2...) -> creates a new array that includes values from other arrays and additional items
+                                        > .forEach(function(n1, n1, n1)){function body} ->run a function for every element of the array, n can be an item, index or another array
+                                        > .
+                    
+
+
 
 
                     IV. Function:

@@ -300,7 +300,19 @@ Capitalforconstructors
                                         > .slice([start index], [end index]) -> returns a new array copying to it all items from index start to end (not including end). Can also make copy of original array if used without arguments.
                                         > .concat(arg1, arg2...) -> creates a new array that includes values from other arrays and additional items
                                         > .forEach(function(n1, n1, n1)){function body} ->run a function for every element of the array, n can be an item, index or another array
-                                        > .
+                                        > .indexOf(item, from) -> looks for item atarting from index from, returns index where it was found, otherwise -1
+                                        > .lastIndexOf(item, from) -> same as indexOf but looks for items from right to left
+                                        > .includes(item, from)-> looks for item starting from from, returns true if found, otherwise false.
+                                        > .find(function(item, idex, array){function body}) -> finds the first item that satisfies the given criteria. returns boolean
+                                        > .findIndex(function(item, index, array){function body}) - same as find but returns position of the element if true
+                                        > .findLastIndex(function(item, index, array){function body}) - same as findIndex but operates from right to left
+                                        > .filer(function(item, index, array){function body})-> finds all items that satisfy the given criteria.
+                                        > .map(function(item, index, array){functionbody}) -> calls the functionf or each element of array, returns array of the results
+                                        > .sort(ordering fn) -> sorts original array in place, also returns the sorted array. Default ordering function is lexical.
+                                        > .reverse() -> reverses order of array
+                                        > .split(delim) -> splits an array according to the given delimiter. No delim splits array of letters into a comma-delimited list characters
+                                        > .join(glue) -> joins array according to given glue element.
+                                        > .reduce(function(accumulator, item, index, array){}, [initial]) -> 
                     
 
 

@@ -258,13 +258,43 @@ Capitalforconstructors
                                             let newObject = new thisFunction(arg)
 
                             > Common Plain OBject Properties
-                                >.
+                                >.__proto__ -> sets protoype of object to that of another object (Prototypal Inheritence)
+                                    ex:
+
+                                            let firstObject = {
+                                                prop1: "This is a first property"
+                                            };
+
+                                            let secondObject = {
+                                                prop2: "This is a second property"
+                                            };
+
+                                            secondObject.__proto__ = firstObject; -> now secondObject inherits properties from firstObject
+                                                                                  -> secondObject.prop1 will return value of prop1
+                                                                                  ->Can also be used as a key in an object so as long as the value represents the object to inherit from 
+                                                                                    ex:
+                                                                                            let one = {
+                                                                                                someprop: true
+                                                                                            }
+
+                                                                                            let two = {
+                                                                                                __proto__ : one
+                                                                                            }
+
+                                                                                            two will inherit the properties of one when that key is called like two.someprop.
+                                                                                    >__proto__ can only be an object or null.
+                                                                                    >can't reference in circles
+                                                                                    > is read-only
+
+
                             > Common Plain Object Methods
                                                             
                                 >Object.keys(obj) – returns an array of keys.
                                 >Object.values(obj) – returns an array of values.
                                 >Object.entries(obj) – returns an array of [key, value] pairs.
                                 >Object.fromEntries(array) -> ??
+                                >Look into property flags and their associated methods, they are rarely used.
+                                >Look into getters/setters and their associated methods, they are rarely used
 
                             
                                 
@@ -736,6 +766,27 @@ Capitalforconstructors
         let popUp = prompt("this is a warning", [input]); ->prompt is a modal window that allows user input
 
         let confirmPLease = confirm("why have drama?"); ->confirm is a modal window with two buttons "ok" (true) and "cancel"(false)
+
+
+*/
+
+
+//PROTOTYPAL INHERITANCE
+
+/*
+
+    All objects have an internal (hidden) property called [[Prototype]] that  is either null
+    or references another object. If a certain property is not explicitly defined in an object, the JS engine will search for in in that objects [[Prototype]].
+
+    See section on object properties for use of __proto__.
+
+    __proto__ is a getter/setter for [[Protoype]]
+
+
+    .prototype is the property called "prototype" that every (constructor(?)) function object implicity has (sometimes called "native prototypes" (?)). (F.prototype) (this is seperate from the [[Prototype]] access by __proto__)
+
+
+
 
 
 */

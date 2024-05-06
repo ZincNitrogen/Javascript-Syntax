@@ -257,6 +257,18 @@ Capitalforconstructors
 
                                             let newObject = new thisFunction(arg)
 
+                            > Common Plain OBject Properties
+                                >.
+                            > Common Plain Object Methods
+                                                            
+                                >Object.keys(obj) – returns an array of keys.
+                                >Object.values(obj) – returns an array of values.
+                                >Object.entries(obj) – returns an array of [key, value] pairs.
+                                >Object.fromEntries(array) -> ??
+
+                            
+                                
+
 
 
 
@@ -312,7 +324,17 @@ Capitalforconstructors
                                         > .reverse() -> reverses order of array
                                         > .split(delim) -> splits an array according to the given delimiter. No delim splits array of letters into a comma-delimited list characters
                                         > .join(glue) -> joins array according to given glue element.
-                                        > .reduce(function(accumulator, item, index, array){}, [initial]) -> 
+                                        > .reduce(function(accumulator, item, index, array){}, [initial]) -> takes the result of the initial funtion and passes it through to the next one (????)
+                                        > .reduceRight(function(accumulator, item, index, array){}, [initial] => saem as .reduce but from right to left
+                                        > .Array.isArray([]) -> checks if object is an array, returns boolean
+                                        > .some(function(item, index, array){function body}) -> returns true the moment the function returns a truthy value
+                                        > .every(function(item, index, array){function body}) -> returns false the moment the function returns a falsey value
+                                        > .fill(value, start index, end index) -> fills array with repeating value from start to end
+                                        > .copyWithin(target index, start index, end index ) -> copies elements from start index to end index and places them at target index within the array.
+                                        > .flat(depth)/.flatMap(fn) -> create a new flat array from a multidimensional array
+                                        > look into "thisArg", appears to function like "this" (objects) but for arrays
+                                        > look into iterables
+
                     
 
 
@@ -433,12 +455,42 @@ Capitalforconstructors
                                     ex: let variableName = new WeakMap();
                                 ^Can only take objects as keys.
 
+                                    > Common Array Properties
+                                        >.size -> returns current element count
+                                    > Common Array Methods
+                                        >.set(key, value) – stores the value by the key.
+                                        >.get(key) – returns the value by the key, undefined if key doesn’t exist in map.
+                                        >.has(key) – returns true if the key exists, false otherwise.
+                                        >.delete(key) – removes the element (the key/value pair) by the key.
+                                        >.clear() – removes everything from the map.                              
+                                        >.keys() – returns an iterable for keys
+                                        >.values() – returns an iterable for values
+                                        >.entries() – returns an iterable for entries [key, value], it’s used by default in for..of.
+                                        >.Object.entries(obj) -> ///
+                                        >. Object.fromEntries -> ???
+                                        >.
+
+
 
                     VI. Set:
                                 ^Are like Arrays except values can appear in the structure only once
                                 ^Because Sets are Objects, there are various properties and methods associated with it
                                 ^A subtype of Set is WeakSet, which will automatically free up memory when properties are not in use,
                                    ex: let variableName = new WeakSet();
+
+                                > Common Set Properties
+                                    >.size -> returns current element count
+                                > Common Set Methods
+                                    >.add(value) – adds a value, returns the set itself.
+                                    >.delete(value) – removes the value, returns true 
+                                    >set.has(value) – returns true if the value exists in the set, otherwise false.
+                                    >.clear() – removes everything from the set.
+                                    >.size – is the elements count.
+                                    >.forEach() -? SIMILAR TO MAP METHOD forEach                            
+                                    >.keys() – returns an iterable object for values,
+                                    >.values() – same as set.keys(), for compatibility with Map,
+                                    >.entries() – returns an iterable object for entries [value, value], exists for compatibility with Map.
+                                        
 
 
                     VII. JSON:
@@ -461,6 +513,16 @@ Capitalforconstructors
                                                                                                 }
 
                                 ^Various other properties and methods exist as this is an Object.
+
+                                    > Common JSON Properties
+                                        >
+                                    > Common JSON Methods
+                                        >JSON.stringify(value [, replacer, space]) -> converts the properties of a datatype  (value) to a string (JSON-encoded or serialized or stringified or marshalled object). This method can be used on all datatypes. Functions, Symbols, and  properties with value undefined are skipped however.
+                                        >toJSON(){function body} -> manually converts info to JSON
+                                        >JSON.parse(str[,reviver]) -> decodes JSON string
+                                        
+
+
 
                     VIII. Object Wrappers:
                                 ^**To be written**

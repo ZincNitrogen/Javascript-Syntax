@@ -34,7 +34,7 @@ Capitalforconstructors
 
 /* a. Primatives
     1.String
-    2. Int
+    2. Number
     3. BigInt
     4. Boolean
     5.Undefined
@@ -54,7 +54,7 @@ Capitalforconstructors
                                      \t : Tab
 
                             ^Are immuntable
-                            ^Are iterable (and therefore indexable)
+                            ^Are iterable (and therefore indexable) (spaces are included in indexing)
                             ^Is always enclosed by a String object wrapper and so contains object properties and methods.
                             ^Single dots call methods and properties to variables, double dots on values directly
                             ^The characters are compared by their numeric code. The greater code means that the character is greater. In general Capitals < lowercase <common non-letter characters < special characters < other language characters
@@ -69,7 +69,7 @@ Capitalforconstructors
                                 > .includes(substr, [index]) -> boolean if sunstr is in String. index is optional.
                                 > .startsWith(substr) -> boolean if substring begins string
                                 > .endssWith(substr) -> boolean if substring ends string
-                                > .slice(start index [, end index]) -> returns substring defined by start and optional end indexes (!!!most important of all search and return sybstring methods)
+                                > .slice(start index [, end index]) -> returns substring defined by start and optional end indexes(not including end index) (!!!most important of all search and return sybstring methods)
                                 > .substring(start index [, end index]) -> returns substring defined by start and optional end indexes (not including end)
                                 > .substr(start index [, length]) ->  Returns the part of the string from start, with the given length.
                                 > .str.trim() -> removes whitespace around string
@@ -79,7 +79,7 @@ Capitalforconstructors
                                 > .localeacompare(other string to compare) -> compares characters of different languages via ECMA-402 standard
                                 > .
                     
-                    2.Int:
+                    2.Number:
                         ^aka "Double precision floating point numbers".
                         ^Stored in 64-bit format IEEE 754
                         ^ Can use underscored as a spacer (syntactic sugar)
@@ -91,9 +91,9 @@ Capitalforconstructors
                         ^Look into precision errors.
                         ^Is always enclosed by an Int object wrapper and so contains object properties and methods.
 
-                        > Common Int Properties
+                        > Common Number Properties
                             > 
-                        > Common String Methods
+                        > Common Number Methods
                             > .toString(base) -> converts int to string in any number system via base from 2 - 36
                             > Math.floor(int) -> rounds down to nearest whole number
                             > Math.ceil(int) -> rounds up to nearest whole number
@@ -226,7 +226,7 @@ Capitalforconstructors
                                         thisObject.nestedObject -> returns ????
                                         thisObject.nestedObject.subpropertyone -> returns nested property from property object
 
-                                        ^The "this" keyword can be used by an object method to reference proerties inside its parent object
+                                        ^The "this" keyword can be used by an object method to reference properties inside its parent object
                                             ex: let thisOBject = {
                                                 prop1: 24;
                                                 exampleMethod: function() {
@@ -234,10 +234,11 @@ Capitalforconstructors
                                                     return ziyadAge;
                                                 }
                                             }
-                        
+                                        
+                                        ^ Object literals use object constructors internally (?)
 
                                     ^Plain Object Constructors
-                                        ^ Can be used to (a) create empty objects or (b)instantiate new objects from functions
+                                        ^ Can be used to (a) create empty objects or (b)create an object and instansiate it in slightly different implementations.
 
 
                                             ex: 
@@ -248,14 +249,22 @@ Capitalforconstructors
                                             
                                             
                                             
-                                            (b) function thisFunction(param) {
+                                            (b) function thisFunction(param, param2) {
 
-                                                        action;
-                                                        return something;
+                                                    this.param = param,
+                                                    this.param2 = param2
 
                                             }
 
-                                            let newObject = new thisFunction(arg)
+                                            let newObject = new thisFunction("anything", "anything bro")
+
+
+                                            ^Object constructor functions take parameters which are to be the properties of the obejct it creates.
+                                            The function then sets the keys of the properties using 'this.param' and the values of th keys 
+                                            with whatever is on the otherside of the equals sign. In the example, "this.param" is the property param, while ""= param" sets 
+                                            it equal to the parameter called "param". Then, newObject is created wth the "new" function syntax with arguments that
+                                            reflect the contructors parameters. Then newObject is to be treated as a regular object (properties and methods can be accesed using dot notation, etc)
+                                             
 
                             > Common Plain OBject Properties
                                 >.__proto__ -> sets protoype of object to that of another object (Prototypal Inheritence)
@@ -285,6 +294,13 @@ Capitalforconstructors
                                                                                     >__proto__ can only be an object or null.
                                                                                     >can't reference in circles
                                                                                     > is read-only
+                                                                                    > is generally considered outdated in favor of
+                                                                                            >.getProtoypeOf(obj)
+                                                                                            >.setPrototypeOf(obj, proto)
+                                                                                            >.create(proto[,descriptors])
+
+
+                                > .prototype -> see "Native Prototypes" in the section on Prototypal Inheritance
 
 
                             > Common Plain Object Methods
@@ -332,13 +348,14 @@ Capitalforconstructors
                                                 
                                     > Common Array Properties
                                         > .at[index] ->returns element at index
+                                        > .length -> returns number of elements in array
                                     > Common Array Methods
                                         > .pop() -> Extracts the last element of the array and returns it
                                         > .push(n) -> Append the element n to the end of the array
                                         > .shift() -> Extracts the first element of the array and returns it
                                         > .unshift(n) -> Add the element n to the beginning of the array
                                         > String(n) -> returns all elements of array n in a comma seperted string
-                                        > .splice(start index, [, n's to delete, element1,.....,elementn]) -> from a given index, [delete n elemnts, replace them with element, element2, element etc]
+                                        > .splice(start index, [, n's to delete, element1,.....,elementn]) -> from a given index(inclusive), [delete n elemnts, replace them with element, element2, element etc]
                                         > .slice([start index], [end index]) -> returns a new array copying to it all items from index start to end (not including end). Can also make copy of original array if used without arguments.
                                         > .concat(arg1, arg2...) -> creates a new array that includes values from other arrays and additional items
                                         > .forEach(function(n1, n1, n1)){function body} ->run a function for every element of the array, n can be an item, index or another array
@@ -394,6 +411,9 @@ Capitalforconstructors
                                                         --
                                                             action;
                                                         }
+
+
+                        
                                     Named Funcition Expression:
                                                         let variableName = function nameOfFunction(){
                                                             --
@@ -408,8 +428,9 @@ Capitalforconstructors
 
                             
                 
+                    
 
-
+`                               ^The "this" keyword can be used inside of functions even if they are not inside objects.
                                 ^Recursion is when a function calls itself - need to study this more
                                 ^Rest Parameters: get a function to accept a non-discrete amount of arguments as an array
                                     ex:
@@ -471,6 +492,8 @@ Capitalforconstructors
 
                                 ^Decorators and Forwarding, call/apply -> ???
                                 ^Function Binding -> ????
+                                ^Constructor Funtions 
+                    
 
 
 
@@ -555,7 +578,8 @@ Capitalforconstructors
 
 
                     VIII. Object Wrappers:
-                                ^**To be written**
+                                ^Don't exist for null and undefined values
+                                ^ Are created for primatives to acces their pethods and properties Are discarded after use.
 
 
 
@@ -568,6 +592,7 @@ Capitalforconstructors
 /* c.Type Conversions
     1.Primative to Primative
     2. Object to primitive
+    3. Implicit type conversions
 
             1. Primative to Primative
                I. String Conversion
@@ -581,6 +606,10 @@ Capitalforconstructors
             2.Object to Primative Conversion
                I. **to be written**
 
+
+            3. Implicit Type Conversions
+                I. Putting a '+' before non-ints converts that result/alue to a number
+                II.
 
 
 
@@ -727,11 +756,11 @@ Capitalforconstructors
 
                     d. Modify and Assign:
                         ^used on variables to assign new values to variables based on another variable.
-                            +=
-                            *=
-                            /=
-                            -=
-                            * \ /
+                            += add and assign
+                            *= multiply and assign
+                            /= divide and assign
+                            -= subtract and assign
+                            * \ / (?)
                         ^Increment and Decrement    
                             ++: inc by 1,
                              --: dec by 1
@@ -783,10 +812,197 @@ Capitalforconstructors
     __proto__ is a getter/setter for [[Protoype]]
 
 
-    .prototype is the property called "prototype" that every (constructor(?)) function object implicity has (sometimes called "native prototypes" (?)). (F.prototype) (this is seperate from the [[Prototype]] access by __proto__)
+    .prototype is the property called "prototype" that every object (even object wrappers for primatives) implicity has (sometimes called "native prototypes" (?)). (F.prototype) (this is seperate from the [[Prototype]] access by __proto__)
 
 
 
 
+
+
+
+*/
+
+//Classes
+
+/*
+    A class is a type of function, named with a Capital letter at the beginning of every word.
+                                ^
+    ^Basic class syntax (Class Declaration):
+
+                            class NameOfClass {
+                                constructor() {};
+                                method1;
+                                method.... ;
+                            }
+
+    ^Class Expressions also exist.
+    ^Classes may contain getters and setters.
+    ^Can use computed names
+    ^Can add properties to classes using equals sign..
+    ^Static properties and Methods Exist
+    ^
+
+    ^Essentially what a class does is it creates an object via a constructor function and groups
+    it in with methods that belong to that class so they can be seperate but stil capable of being used together.
+
+
+
+
+*/
+
+//ERROR HANDLING
+
+/*
+
+    a.Try...Catch
+    b. Throw
+    c. Try...Catch.Finally
+    c. Custom
+
+                            a. try...catch blocks 
+
+                                ex: try (
+                                    action;
+                                )catch (error object) {
+                                    do this if try block fails;
+                                }
+
+                                ^only works synchronously
+                                ^error object can have any name and is optional syntax
+                                ^error object has two main properties
+                                    ^.name -> returns the name fo the error object
+                                    ^.message -> description about error messages
+                            
+                            b. Throw
+                                ex: throw <error object>
+                                ^look into rethrowing and wrror object constructors
+                            c. Try...Catch...Finally
+                                self-explanatory
+                            d. Custom
+                                look into this more
+
+                
+      
+
+
+*/
+
+//Promises, Async, wait
+
+/*
+        ^ansynchronous actions are actions that are initiated now but are finished later
+
+        ^come back to  this after basic DOM knowledge
+
+
+
+*/
+
+//DOM
+
+//Document
+
+/*
+
+                                
+    ^window is a global object of the browser and provides methods to control it.
+    ^document is an object that encompasses all page content as sub objects (DOM)
+        ^see DOM Living Standard for document object properties and methods and CSS Object Model(CSSOM, rarely used) for CSS-object proerties and methods
+    
+   ^For every thing except the document itself, the BOM (browser object model ) is used
+        ^see HTML specification for BOM proerties and methods
+
+    SO the tree looks like:
+
+                            window
+                            /  |  \
+                          DOM  BOM  Javascript
+
+
+    
+    ^The DOM Tree
+
+
+
+        The HTML DOM is a standard object model and programming interface for HTML. It defines:
+
+        The HTML elements as objects
+        The properties of all HTML elements
+        The methods to access all HTML elements
+        The events for all HTML elements
+
+    In other words: The HTML DOM is a standard for how to get, change, add, or delete HTML elements.
+
+    HTML DOM methods are actions you can perform (on HTML Elements).
+
+    HTML DOM properties are values (of HTML Elements) that you can set or change.
+
+    A property is a value that you can get or set (like changing the content of an HTML element).
+
+    A method is an action you can do (like add or deleting an HTML element).
+
+    All html tags are objects in the document object model
+    
+
+    ^the "document" object is the entry point to the DOM
+            ^to further access things on the page, use of methods and properties associated with the document object are needed.
+
+
+
+            Finding HTML Elements:
+                document.getElementById(id) 	        Find an element by element id (method)
+                document.getElementsByTagName(name) 	Find elements by tag name (method)
+                document.getElementsByClassName(name) 	Find elements by class name  (method)  
+                
+            Changing HTML Elements:
+                element.innerHTML =  new html content 	Change the inner HTML of an element (property)
+                element.attribute = new value 	        Change the attribute value of an HTML element (property)
+                element.style.property = new style 	    Change the style of an HTML element (property)
+                element.setAttribute(attribute, value) 	Change the attribute value of an HTML element (method)
+
+
+            Adding and Deleting Elements:
+                document.createElement(element) 	    Create an HTML element (method)
+                document.removeChild(element) 	        Remove an HTML element (method)
+                document.appendChild(element) 	        Add an HTML element (method)
+                document.replaceChild(new, old) 	    Replace an HTML element (method)
+                document.write(text) 	                Write into the HTML output stream (method)
+
+            Adding Events Handlers:
+                document.getElementById(id).onclick = function(){code} 	Adding event handler code to an onclick event (method)
+                
+                
+            Finding HTML Objects(by collection):
+
+                document.anchors 	                    Returns all <a> elements that have a name attribute 	
+                document.applets 	                    Deprecated 	
+                document.baseURI 	                    Returns the absolute base URI of the document 	
+                document.body 	                        Returns the <body> element 	
+                document.cookie 	                    Returns the document's cookie 	
+                document.doctype 	                    Returns the document's doctype 	
+                document.documentElement 	            Returns the <html> element 
+                document.documentMode 	                Returns the mode used by the browser 	
+                document.documentURI 	                Returns the URI of the document 	
+                document.domain 	                    Returns the domain name of the document server 	
+                document.domConfig 	                    Obsolete. 	
+                document.embeds 	                    Returns all <embed> elements 	
+                document.forms 	                        Returns all <form> elements 	
+                document.head 	                        Returns the <head> element 	
+                document.images 	                    Returns all <img> elements 	
+                document.implementation 	            Returns the DOM implementation 	
+                document.inputEncoding 	                Returns the document's encoding (character set) 	
+                document.lastModified 	                Returns the date and time the document was updated 	
+                document.links 	                        Returns all <area> and <a> elements that have a href attribute 	
+                document.readyState 	                Returns the (loading) status of the document 	
+                document.referrer 	                    Returns the URI of the referrer (the linking document) 	
+                document.scripts 	                    Returns all <script> elements 	
+                document.strictErrorChecking 	        Returns if error checking is enforced 	
+                document.title 	                        Returns the <title> element 	
+                document.URL 	                        Returns the complete URL of the document 	
+
+
+
+
+                
 
 */
